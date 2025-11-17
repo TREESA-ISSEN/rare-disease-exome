@@ -77,7 +77,7 @@ sbatch wes_single_sample_pipeline.sh \
 ### 2️⃣ Multi-sample WES
 Script:
 ```
-wes_multi_sample_pipeline.sh
+multi_sample_wes_pipeline.sh
 ```
 
 Example:
