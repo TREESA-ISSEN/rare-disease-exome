@@ -128,5 +128,12 @@ sample_R2.fastq.gz
 - Follows GATK Best Practices  
 - Uses SLURM job submission  
 - Optimized for hg38  
-- ACMG variant classification applied afterward  
+- ACMG variant classification applied afterward
+
+
+## License
+
+This project is licensed under the MIT License.  
+See the [LICENSE](../LICENSE) file for details.
+
 
