@@ -1,8 +1,8 @@
 # ACMG Variant Classification Rules
 
-This directory contains complete documentation, formulas, and rules for ACMG-based variant interpretation in rare disease exome sequencing. It is designed for use in Google Sheets or other variant curation systems.
+This folder documents my implementation of the ACMG/AMP guidelines (Richards et al. 2015) for variant interpretation in rare disease whole-exome sequencing (WES) workflows. It includes population frequency filters, in-silico prediction logic, rule guidance, and a Python automation script for an online ACMG classifier.
 
----
+
 
 ## Population Allele Frequency Rules (1000G, ESP6500, ExAC, gnomAD)
 
@@ -110,6 +110,60 @@ This ACMG rulebook supports:
 - Rare disease WES interpretation
 - Google Sheets–based ACMG scoring
 - Clinical variant interpretation workflows
+
+---
+
+## 🧰 Automatic ACMG Classification via UMD Tool
+
+I created a script that automates the use of the "Genetic Variant Interpretation Tool", developed by the University of Maryland School of Medicine:
+
+🔗 https://www.medschool.umaryland.edu/genetic_variant_interpretation_tool1.html/
+
+This site:
+
+- Lets you check ACMG evidence boxes for a variant,
+- Automatically applies ACMG logic,
+- Shows final classification,
+- Allows downloading a report table of multiple variants.
+
+> ⚠️ Disclaimer: This tool is unofficial and not endorsed by ACMG/AMP. Use for documentation and research assistance.
+
+---
+
+### 🐍 Automation Script — `acmg_web_tool_automation.py`
+
+```bash
+pip install selenium
+```
+
+Place a file called `attributes.txt` in the same folder:
+
+Example `attributes.txt`:
+
+```
+PVS1,PM2,PP3
+PM2,PP3,BP4
+BA1
+PP3,PP2,PM1
+```
+
+Run the script:
+
+```bash
+python acmg_web_tool_automation.py
+```
+
+Features:
+
+- Opens Chrome
+- Selects ACMG buttons for each attribute
+- Reads the assigned classification
+- Clicks "Add Variant"
+- Downloads final results as CSV to:
+
+```
+./output_folder/
+```
 
 ---
 
